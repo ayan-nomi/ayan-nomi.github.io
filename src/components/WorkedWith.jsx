@@ -45,7 +45,7 @@ export default function WorkedWith() {
   ]
 
   return (
-    <section className="py-24 bg-white dark:bg-slate-950/20 border-y border-slate-200/50 dark:border-slate-800/50" id="work">
+    <section className="py-24 bg-white dark:bg-slate-950/20 border-y border-slate-200/50 dark:border-slate-800/50">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8">
         {/* Section Header */}
         <div className="mb-16 flex flex-col md:flex-row md:items-end justify-between gap-4">

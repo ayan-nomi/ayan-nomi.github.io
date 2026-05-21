@@ -18,7 +18,7 @@ export default function TechStack() {
         { name: 'AWS EC2 & RDS', desc: 'Deploying Ubuntu servers, managed MySQL/PostgreSQL databases.' },
         { name: 'Docker', desc: 'Containerizing data warehouses, database replicas, and scripting services.' },
         { name: 'Apache Airflow', desc: 'Orchestrating, scheduling, and monitoring multi-node data workflows.' },
-        { name: 'AWS Glue', desc: 'Serverless integration service for daily data transformations and synchronizations.' },
+        { name: 'AWS Glue & Lambda', desc: 'Serverless integration service for daily data transformations and synchronizations.' },
         { name: 'PostgreSQL & MySQL', desc: 'DWH structures, database replication, and OpenSearch synchronizations.' }
       ]
     },
@@ -70,8 +70,8 @@ export default function TechStack() {
             onMouseEnter={() => setActiveCategory(category.id)}
             onMouseLeave={() => setActiveCategory(null)}
             className={`p-8 border bg-white dark:bg-slate-950 transition-all duration-300 relative group ${activeCategory === category.id
-                ? 'border-primary dark:border-primary-light shadow-md'
-                : 'border-slate-200/50 dark:border-slate-800/50'
+              ? 'border-primary dark:border-primary-light shadow-md'
+              : 'border-slate-200/50 dark:border-slate-800/50'
               }`}
           >
             {/* Top Accent Line */}
