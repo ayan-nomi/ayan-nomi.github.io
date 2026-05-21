@@ -12,7 +12,8 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
-        playground: resolve(__dirname, 'src/playground.html')
+        playground: resolve(__dirname, 'src/playground.html'),
+        services: resolve(__dirname, 'src/services.html')
       }
     }
   }
