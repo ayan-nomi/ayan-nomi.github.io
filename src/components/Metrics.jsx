@@ -17,7 +17,7 @@ export default function Metrics() {
     },
     {
       icon: <Sparkles className="w-5 h-5 text-primary dark:text-primary-light" />,
-      value: '50%',
+      value: '30%',
       label: 'Cost Reduction',
       desc: 'Significant infrastructure overhead decreases through smart S3 Parquet formats and lightweight systems.'
     },
@@ -34,8 +34,8 @@ export default function Metrics() {
       <div className="max-w-[1200px] mx-auto px-6 md:px-8">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 md:gap-12 divide-y sm:divide-y-0 lg:divide-x divide-slate-100 dark:divide-slate-900">
           {stats.map((stat, i) => (
-            <div 
-              key={stat.label} 
+            <div
+              key={stat.label}
               className={`flex flex-col gap-3 pt-6 sm:pt-0 ${i > 0 ? 'lg:pl-8' : ''} text-left group`}
             >
               {/* Metric Icon */}
