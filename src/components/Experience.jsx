@@ -146,7 +146,7 @@ export default function Experience() {
                 {/* Collapsible Details Body */}
                 <div 
                   className={`overflow-hidden transition-all duration-300 ${
-                    isExpanded ? 'max-h-[500px] border-t border-slate-100 dark:border-slate-900 bg-white/40 dark:bg-slate-950/20' : 'max-h-0'
+                    isExpanded ? 'max-h-[1200px] border-t border-slate-100 dark:border-slate-900 bg-white/40 dark:bg-slate-950/20' : 'max-h-0'
                   }`}
                 >
                   <div className="p-6 md:p-8 pl-8 md:pl-56">

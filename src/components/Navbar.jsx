@@ -35,100 +35,124 @@ export default function Navbar({ isPlayground = false, isServices = false }) {
   ]
 
   return (
-    <header className="fixed top-0 w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50 z-50 transition-all duration-300">
-      <nav className="flex justify-between items-center h-16 w-full px-6 md:px-12 lg:px-16">
-        {/* Logo */}
-        <a href={isPlayground || isServices ? 'index.html' : '#'} className="flex items-center gap-2 group">
-          <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold text-sm tracking-wider group-hover:scale-105 transition-transform">
-            AK
+    <>
+      <header className="fixed top-0 w-full bg-white/80 dark:bg-slate-950/80 backdrop-blur-md border-b border-slate-200/50 dark:border-slate-800/50 z-50 transition-all duration-300">
+        <nav className="flex justify-between items-center h-16 w-full px-6 md:px-12 lg:px-16">
+          {/* Logo */}
+          <a href={isPlayground || isServices ? 'index.html' : '#'} className="flex items-center gap-2 group">
+            <div className="w-8 h-8 rounded bg-primary flex items-center justify-center text-white font-bold text-sm tracking-wider group-hover:scale-105 transition-transform">
+              AK
+            </div>
+            <span className="font-display text-lg font-bold text-slate-900 dark:text-white tracking-wider group-hover:text-primary transition-colors">
+              AYAN KHAN
+            </span>
+          </a>
+
+          {/* Desktop Menu */}
+          <div className="hidden md:flex items-center gap-8">
+            {navLinks.map((link) => {
+              const isActive = (link.name === 'Strategic Solutions' && isServices)
+              return (
+                <a
+                  key={link.name}
+                  href={link.href}
+                  className={`text-sm font-medium transition-colors relative py-1 ${
+                    isActive 
+                      ? 'text-primary dark:text-primary-light font-semibold' 
+                      : 'text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary-light'
+                  } after:content-[''] after:absolute after:bottom-0 after:left-0 ${
+                    isActive ? 'after:w-full' : 'after:w-0'
+                  } after:h-0.5 after:bg-primary dark:after:bg-primary-light hover:after:w-full after:transition-all after:duration-200`}
+                >
+                  {link.name}
+                </a>
+              )
+            })}
           </div>
-          <span className="font-display text-lg font-bold text-slate-900 dark:text-white tracking-wider group-hover:text-primary transition-colors">
-            AYAN KHAN
-          </span>
-        </a>
 
-        {/* Desktop Menu */}
-        <div className="hidden md:flex items-center gap-8">
-          {navLinks.map((link) => {
-            const isActive = (link.name === 'Strategic Solutions' && isServices)
-            return (
-              <a
-                key={link.name}
-                href={link.href}
-                className={`text-sm font-medium transition-colors relative py-1 ${
-                  isActive 
-                    ? 'text-primary dark:text-primary-light font-semibold' 
-                    : 'text-slate-600 dark:text-slate-300 hover:text-primary dark:hover:text-primary-light'
-                } after:content-[''] after:absolute after:bottom-0 after:left-0 ${
-                  isActive ? 'after:w-full' : 'after:w-0'
-                } after:h-0.5 after:bg-primary dark:after:bg-primary-light hover:after:w-full after:transition-all after:duration-200`}
-              >
-                {link.name}
-              </a>
-            )
-          })}
-        </div>
+          {/* Buttons (Desktop) */}
+          <div className="hidden md:flex items-center gap-4">
+            {/* Theme Toggle */}
+            <button
+              onClick={toggleTheme}
+              className="p-2 text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light hover:bg-slate-100 dark:hover:bg-slate-900 rounded-full transition-all"
+              aria-label="Toggle Theme"
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
 
-        {/* Buttons (Desktop) */}
-        <div className="hidden md:flex items-center gap-4">
-          {/* Theme Toggle */}
-          <button
-            onClick={toggleTheme}
-            className="p-2 text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light hover:bg-slate-100 dark:hover:bg-slate-900 rounded-full transition-all"
-            aria-label="Toggle Theme"
-          >
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
+            {/* LinkedIn Button */}
+            <a
+              href="https://linkedin.com/in/ayan-nisar-khan"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary border border-primary/30 hover:border-primary bg-primary/5 hover:bg-primary hover:text-white dark:text-primary-light dark:border-primary-light/30 dark:hover:border-primary-light dark:bg-primary-light/5 dark:hover:bg-primary-light dark:hover:text-slate-950 transition-all"
+            >
+              <Linkedin size={14} />
+              LinkedIn Profile
+            </a>
 
-          {/* LinkedIn Button */}
-          <a
-            href="https://linkedin.com/in/ayan-nisar-khan"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-primary border border-primary/30 hover:border-primary bg-primary/5 hover:bg-primary hover:text-white dark:text-primary-light dark:border-primary-light/30 dark:hover:border-primary-light dark:bg-primary-light/5 dark:hover:bg-primary-light dark:hover:text-slate-950 transition-all"
-          >
-            <Linkedin size={14} />
-            LinkedIn Profile
-          </a>
+            {/* CV Button */}
+            <a
+              href="https://github.com/ayan-nomi"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-slate-900 hover:bg-primary dark:bg-slate-800 dark:hover:bg-primary-light dark:hover:text-slate-950 transition-all"
+            >
+              <FileText size={14} />
+              GitHub Profile
+            </a>
+          </div>
 
-          {/* CV Button */}
-          <a
-            href="https://github.com/ayan-nomi"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="flex items-center gap-2 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-slate-900 hover:bg-primary dark:bg-slate-800 dark:hover:bg-primary-light dark:hover:text-slate-950 transition-all"
-          >
-            <FileText size={14} />
-            GitHub Profile
-          </a>
-        </div>
+          {/* Mobile Toggle & Theme (Mobile) */}
+          <div className="flex items-center gap-2 md:hidden">
+            <button
+              onClick={toggleTheme}
+              className="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-full"
+            >
+              {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
+            </button>
+            
+            <button
+              onClick={() => setIsOpen(!isOpen)}
+              className="p-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 rounded"
+              aria-label="Toggle mobile menu"
+            >
+              {isOpen ? <X size={20} /> : <Menu size={20} />}
+            </button>
+          </div>
+        </nav>
+      </header>
 
-        {/* Mobile Toggle & Theme (Mobile) */}
-        <div className="flex items-center gap-2 md:hidden">
-          <button
-            onClick={toggleTheme}
-            className="p-2 text-slate-500 dark:text-slate-400 hover:bg-slate-100 dark:hover:bg-slate-900 rounded-full"
-          >
-            {theme === 'dark' ? <Sun size={18} /> : <Moon size={18} />}
-          </button>
-          
-          <button
-            onClick={() => setIsOpen(!isOpen)}
-            className="p-2 text-slate-700 dark:text-slate-300 hover:bg-slate-100 dark:hover:bg-slate-900 rounded"
-            aria-label="Toggle mobile menu"
-          >
-            {isOpen ? <X size={20} /> : <Menu size={20} />}
-          </button>
-        </div>
-      </nav>
+      {/* Mobile Menu Backdrop */}
+      <div
+        className={`fixed inset-0 bg-slate-950/40 backdrop-blur-sm z-40 md:hidden transition-all duration-300 ${
+          isOpen ? 'opacity-100 pointer-events-auto' : 'opacity-0 pointer-events-none'
+        }`}
+        onClick={() => setIsOpen(false)}
+      />
 
       {/* Mobile Drawer */}
       <div
-        className={`fixed inset-y-0 right-0 z-40 w-64 bg-white dark:bg-slate-950 border-l border-slate-200 dark:border-slate-800 shadow-2xl p-6 transform transition-transform duration-350 ease-out md:hidden ${
-          isOpen ? 'translate-x-0' : 'translate-x-full'
+        className={`fixed inset-y-0 z-50 w-64 bg-white dark:bg-slate-950 border-l border-slate-200/80 dark:border-slate-800/80 shadow-2xl p-6 transition-all duration-300 ease-out md:hidden ${
+          isOpen ? 'right-0 opacity-100' : 'right-[-300px] opacity-0 invisible pointer-events-none'
         }`}
       >
-        <div className="flex flex-col gap-6 mt-12">
+        {/* Drawer Header */}
+        <div className="flex items-center justify-between pb-4 border-b border-slate-100 dark:border-slate-900 mb-6">
+          <span className="font-display text-xs font-bold text-slate-400 dark:text-slate-500 uppercase tracking-widest">
+            Navigation Menu
+          </span>
+          <button
+            onClick={() => setIsOpen(false)}
+            className="p-1.5 text-slate-500 hover:text-primary dark:text-slate-400 dark:hover:text-primary-light hover:bg-slate-100 dark:hover:bg-slate-900 rounded transition-colors"
+            aria-label="Close mobile menu"
+          >
+            <X size={18} />
+          </button>
+        </div>
+
+        <div className="flex flex-col gap-5">
           {navLinks.map((link) => {
             const isActive = (link.name === 'Strategic Solutions' && isServices)
             return (
@@ -169,6 +193,6 @@ export default function Navbar({ isPlayground = false, isServices = false }) {
           </a>
         </div>
       </div>
-    </header>
+    </>
   )
 }

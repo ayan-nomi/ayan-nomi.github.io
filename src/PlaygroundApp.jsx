@@ -6,7 +6,7 @@ import { ArrowLeft } from 'lucide-react'
 
 export default function PlaygroundApp() {
   return (
-    <div className="min-h-screen flex flex-col bg-surface text-secondary dark:bg-dark-bg dark:text-dark-subtext transition-colors duration-300">
+    <div className="min-h-screen flex flex-col bg-surface text-secondary dark:bg-dark-bg dark:text-dark-subtext transition-colors duration-300 overflow-x-hidden">
       {/* Navigation Header */}
       <Navbar isPlayground={true} />
 
