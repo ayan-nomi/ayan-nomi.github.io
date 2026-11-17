@@ -6,7 +6,7 @@ export default function Hero() {
     <section className="relative min-h-[85vh] flex items-center overflow-hidden px-6 py-20 bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-950 dark:to-slate-900 border-b border-slate-200/50 dark:border-slate-800/50">
       {/* Editorial Grid Overlay */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#8080800a_1px,transparent_1px),linear-gradient(to_bottom,#8080800a_1px,transparent_1px)] bg-[size:14px_24px] dark:bg-[linear-gradient(to_right,#ffffff03_1px,transparent_1px),linear-gradient(to_bottom,#ffffff03_1px,transparent_1px)]"></div>
-      
+
       {/* Decorative Gradient Orb */}
       <div className="absolute right-[-10%] top-[-10%] w-[50vw] h-[50vw] rounded-full bg-primary/5 dark:bg-primary-light/5 blur-3xl pointer-events-none"></div>
 
@@ -15,7 +15,7 @@ export default function Hero() {
         <div className="lg:col-span-8 space-y-8 text-left z-10">
           <div className="fade-in-up inline-flex items-center gap-2 px-3 py-1.5 border border-primary/20 dark:border-primary-light/20 bg-primary/5 dark:bg-primary-light/5 text-xs font-semibold uppercase tracking-widest text-primary dark:text-primary-light">
             <span className="w-1.5 h-1.5 bg-primary dark:bg-primary-light rounded-full animate-pulse"></span>
-            Senior Data Analyst &amp; Engineer
+            Data &amp; AI Engineer
           </div>
 
           <h1 className="fade-in-up delay-100 font-display text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight text-slate-900 dark:text-white leading-tight">
@@ -27,7 +27,7 @@ export default function Hero() {
           </h1>
 
           <p className="fade-in-up delay-200 max-w-2xl font-body text-base md:text-lg leading-relaxed text-slate-600 dark:text-slate-400">
-            A meticulous analyst and engineer with 4+ years of expertise across e-commerce, aviation, ed-tech, and real estate startup environments. Architecting scalable, automated ETL pipelines, deploying real-time observability dashboards, and pioneering RAG-driven enterprise AI agents.
+            A meticulous analyst and engineer with 5+ years of expertise across e-commerce, aviation, ed-tech, and real estate startup environments. Architecting scalable, automated ETL pipelines, deploying real-time observability dashboards, and pioneering RAG-driven enterprise AI agents.
           </p>
 
           <div className="fade-in-up delay-300 flex flex-col sm:flex-row gap-4 pt-4">
@@ -38,7 +38,7 @@ export default function Hero() {
               Explore Portfolio
               <ArrowRight size={14} className="group-hover:translate-x-1 transition-transform" />
             </a>
-            
+
             <a
               href="playground.html"
               className="flex items-center justify-center gap-2 px-8 py-3.5 text-xs font-semibold uppercase tracking-wider text-slate-700 hover:text-slate-950 dark:text-slate-300 dark:hover:text-white border border-slate-300 dark:border-slate-700 hover:border-slate-900 dark:hover:border-slate-500 bg-white/50 hover:bg-slate-50 dark:bg-slate-900/50 dark:hover:bg-slate-800 transition-all shadow-sm"
@@ -69,9 +69,9 @@ export default function Hero() {
                 <p>"{'{'}"</p>
                 <p className="pl-3">"name": "Ayan Khan",</p>
                 <p className="pl-3">"location": "Nagpur, India",</p>
-                <p className="pl-3">"role": "Data Engineer & Analyst",</p>
-                <p className="pl-3">"specialization": ["ETL", "BI", "AI-RAG"],</p>
-                <p className="pl-3">"experience": "4+ Years"</p>
+                <p className="pl-3">"role": "Data & AI Engineer",</p>
+                <p className="pl-3">"specialization": ["ETL", "BI", "AI-RAG", "DATA PIPELINES", "GEN AI"],</p>
+                <p className="pl-3">"experience": "5+ Years"</p>
                 <p>"{'}'}"</p>
               </div>
               <p className="pt-2"><span className="text-primary dark:text-primary-light font-bold">$</span> node sync_status.js</p>
