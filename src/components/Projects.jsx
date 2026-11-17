@@ -1,6 +1,65 @@
 import React, { useState } from 'react'
-import { ArrowUpRight, Grid, Filter, Database, Terminal, ShieldAlert, Zap, Sparkles, ChevronDown, ChevronUp, TrendingUp } from 'lucide-react'
+import { ArrowUpRight, Grid, Filter, Database, Terminal, ShieldAlert, Zap, Sparkles, ChevronDown, ChevronUp, TrendingUp, PhoneCall, Bot } from 'lucide-react'
 import ProjectModal from './ProjectModal.jsx'
+
+// 0. Autonomous Outbound Voice AI Agent (LSA)
+const VoiceAgentVisual = () => (
+  <div className="absolute inset-0 flex items-center justify-center p-4">
+    <div className="relative w-full h-full border border-slate-200/50 dark:border-slate-800/50 bg-slate-50/50 dark:bg-slate-900/30 backdrop-blur-sm p-4 flex flex-col justify-between overflow-hidden">
+      {/* Top flow indicator */}
+      <div className="flex items-center justify-between border-b border-slate-200/40 dark:border-slate-800/60 pb-2">
+        <span className="text-[8px] font-mono text-slate-400 dark:text-slate-500">VOICE_AI_DISPATCHER</span>
+        <span className="flex items-center gap-1">
+          <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-ping"></span>
+          <span className="text-[8px] font-mono text-emerald-500 font-bold">OUTBOUND ACTIVE</span>
+        </span>
+      </div>
+
+      {/* Main visualization */}
+      <div className="flex items-center justify-around py-2 relative">
+        {/* Connection line */}
+        <div className="absolute left-[18%] right-[18%] top-1/2 h-[1px] border-t border-dashed border-slate-300 dark:border-slate-700"></div>
+        <div className="absolute left-[25%] right-[25%] top-1/2 h-[1px] bg-gradient-to-r from-transparent via-primary dark:via-primary-light to-transparent animate-pulse"></div>
+
+        {/* LSA Lead Node */}
+        <div className="z-10 flex flex-col items-center gap-1 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-2 shadow-sm rounded-lg">
+          <div className="w-7 h-7 rounded-full bg-amber-500/10 flex items-center justify-center text-amber-500">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 10V3L4 14h7v7l9-11h-7z" /></svg>
+          </div>
+          <span className="text-[7px] font-mono text-slate-500 font-bold">LSA Lead</span>
+        </div>
+
+        {/* ElevenLabs Voice Agent Node */}
+        <div className="z-10 flex flex-col items-center gap-1 bg-white dark:bg-slate-950 border border-primary/30 dark:border-primary-light/30 p-2.5 shadow-md rounded-lg relative">
+          <div className="absolute inset-0 bg-primary/10 dark:bg-primary-light/10 rounded-lg blur-md animate-pulse"></div>
+          {/* Animated sound wave bars */}
+          <div className="w-8 h-8 rounded-full bg-primary/20 dark:bg-primary-light/20 flex items-center justify-center gap-0.5 text-primary dark:text-primary-light relative z-10">
+            <span className="w-0.5 h-2 bg-primary dark:bg-primary-light rounded-full animate-pulse"></span>
+            <span className="w-0.5 h-4 bg-primary dark:bg-primary-light rounded-full animate-pulse [animation-delay:0.15s]"></span>
+            <span className="w-0.5 h-3 bg-primary dark:bg-primary-light rounded-full animate-pulse [animation-delay:0.3s]"></span>
+            <span className="w-0.5 h-4.5 bg-primary dark:bg-primary-light rounded-full animate-pulse [animation-delay:0.45s]"></span>
+            <span className="w-0.5 h-2 bg-primary dark:bg-primary-light rounded-full animate-pulse [animation-delay:0.2s]"></span>
+          </div>
+          <span className="text-[7px] font-mono text-primary dark:text-primary-light font-bold relative z-10">ElevenLabs AI</span>
+        </div>
+
+        {/* AWS & MCP Backend Node */}
+        <div className="z-10 flex flex-col items-center gap-1 bg-white dark:bg-slate-950 border border-slate-200 dark:border-slate-800 p-2 shadow-sm rounded-lg">
+          <div className="w-7 h-7 rounded-full bg-sky-500/10 flex items-center justify-center text-sky-500">
+            <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M12 5l7 7-7 7" /></svg>
+          </div>
+          <span className="text-[7px] font-mono text-slate-500 font-bold">AWS & MCP</span>
+        </div>
+      </div>
+
+      {/* Bottom execution trace */}
+      <div className="flex items-center justify-between border-t border-slate-200/40 dark:border-slate-800/60 pt-2 font-mono text-[7px] text-slate-400 dark:text-slate-500">
+        <span>SCALE: 200+ FRANCHISES</span>
+        <span className="text-primary dark:text-primary-light font-bold">DISPATCH: &lt; 60s</span>
+      </div>
+    </div>
+  </div>
+)
 
 // 1. Franchise Onboarding RAG Chatbot
 const ChatbotVisual = () => (
@@ -131,10 +190,10 @@ const IvasVisual = () => (
 
         {/* Ingestion overlay trendline */}
         <svg className="absolute inset-0 w-full h-full" viewBox="0 0 100 40" preserveAspectRatio="none">
-          <path 
-            d="M 10 32 Q 35 22 60 14 T 90 6" 
-            fill="none" 
-            stroke="currentColor" 
+          <path
+            d="M 10 32 Q 35 22 60 14 T 90 6"
+            fill="none"
+            stroke="currentColor"
             strokeWidth="1.5"
             className="text-primary dark:text-primary-light"
           />
@@ -169,11 +228,11 @@ const LagVisual = () => (
       <div className="flex-1 py-1 relative">
         <svg className="w-full h-full" viewBox="0 0 100 40" fill="none">
           <line x1="0" y1="20" x2="100" y2="20" stroke="currentColor" strokeDasharray="2,2" className="text-slate-300 dark:text-slate-800" />
-          
-          <path 
-            d="M 0 25 L 20 23 L 40 26 L 50 4 L 60 32 L 80 25 L 100 24" 
-            fill="none" 
-            stroke="currentColor" 
+
+          <path
+            d="M 0 25 L 20 23 L 40 26 L 50 4 L 60 32 L 80 25 L 100 24"
+            fill="none"
+            stroke="currentColor"
             strokeWidth="1.5"
             className="text-rose-500 animate-pulse"
           />
@@ -256,7 +315,7 @@ const OmsVisual = () => (
         <div className="w-5 h-5 bg-slate-100 dark:bg-slate-800 border border-slate-200 dark:border-slate-700 rounded flex items-center justify-center text-[7px] text-slate-400 z-10">
           DB1
         </div>
-        
+
         <div className="w-8 h-8 bg-emerald-500/10 border border-emerald-500/30 rounded flex flex-col items-center justify-center text-emerald-500 z-10 shadow-lg relative animate-pulse">
           <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2" /></svg>
           <span className="text-[4.5px] font-mono uppercase font-bold text-emerald-500 mt-0.5">SHARED</span>
@@ -278,6 +337,8 @@ const OmsVisual = () => (
 
 function renderProjectVisual(id) {
   switch (id) {
+    case 'lsa-outbound-voice-agent':
+      return <VoiceAgentVisual />
     case 'franchise-onboarding-chatbot':
       return <ChatbotVisual />
     case 'saas-to-saas-migration':
@@ -302,10 +363,47 @@ export default function Projects() {
 
   const projectsData = [
     {
+      id: 'lsa-outbound-voice-agent',
+      title: 'Autonomous Outbound Voice AI Agent (LSA)',
+      date: 'Oct 2026 — Nov 2026',
+      tags: ['AI AGENTS', 'AWS', 'ELEVENLABS', 'PYTHON'],
+      icon: <PhoneCall className="w-5 h-5" />,
+      desc: 'Architected an autonomous outbound conversational voice agent to qualify and convert Google Local Services Ads (LSA) leads across 200+ franchise territories. Engineered with ElevenLabs Conversational AI and AWS Serverless (Lambda, EventBridge, RDS, VPC), featuring Model Context Protocol (MCP) tool integration for real-time coupon evaluation, multi-tenant lead personalization, and GitHub Actions OIDC CI/CD.',
+      image: '',
+      details: {
+        metrics: [
+          { label: 'Franchise Scale', value: '200+ Locations' },
+          { label: 'Trigger Latency', value: '< 60s Outbound' },
+          { label: 'Tool Protocol', value: 'MCP-Integrated' }
+        ],
+        challenge: 'A national property inspection network generates high-intent customer leads via Google Local Services Ads (LSA) across 200+ franchise territories. Manual follow-up created operational bottlenecks, inconsistent outreach speed, and missed inspection booking opportunities. The enterprise required an autonomous, human-like voice AI solution to immediately call prospective clients, evaluate property inspection requirements, dynamically determine location-specific discount eligibility via business rules, and drive bookings while integrating smoothly into multi-tenant franchise operations.',
+        implementation: [
+          'Conversational Voice AI Engineering: Designed and implemented natural outbound dialog flows using ElevenLabs Conversational AI, configuring prompt hierarchies, contextual variables, conditional branch routing, and low-latency webhook endpoints.',
+          'AWS Serverless Event Infrastructure: Engineered an event-driven backend leveraging AWS Lambda, API Gateway, Lambda Function URLs, Amazon EventBridge, and Amazon RDS, orchestrated within isolated VPC subnets and secured with AWS Secrets Manager.',
+          'Model Context Protocol (MCP) Tool Integration: Developed an MCP-based runtime tool layer that dynamically retrieves valid promotional coupons and executes backend business rule logic during live calls to determine instant customer eligibility.',
+          'Multi-Tenant Lead Personalization: Injected dynamic runtime variables—including franchise owner (Strategic Partner) identifiers, local service coverage, custom rate sheets, and customer lead context—to ensure seamless localized branding.',
+          'Workflow Automation & Telemetry: Configured automated triggers for instant outbound dialing upon lead ingestion, parsing post-call conversation transcripts and structured outcomes for CRM sync and automated follow-ups.',
+          'Enterprise DevOps & OIDC Security: Established a robust CI/CD pipeline using GitHub Actions with AWS IAM OpenID Connect (OIDC) authentication, least-privilege IAM policies, and encrypted database connections.',
+          'State Mapping & Validation: Conducted end-to-end integration testing across agent triggers, variable propagation, MCP tool execution, and discount logic, resolving conversational state-mapping discrepancies.'
+        ],
+        outcome: 'Established an intelligent, AWS-integrated outbound voice automation platform that transforms manual lead follow-up into an autonomous, scalable, and conversion-focused operation. The architecture delivers sub-minute lead engagement, multi-tenant isolation across 200+ franchise branches, and deterministic tool execution via MCP, significantly lowering lead acquisition costs and boosting inspection booking conversion rates.',
+        nodes: [
+          'Google LSA Ingestion',
+          'Amazon EventBridge Trigger',
+          'AWS Lambda Event Dispatcher',
+          'ElevenLabs Conversational AI',
+          'MCP Discount Selector',
+          'Amazon RDS Multi-Tenant DB',
+          'AWS Secrets Manager & VPC',
+          'GitHub Actions OIDC CI/CD'
+        ]
+      }
+    },
+    {
       id: 'franchise-onboarding-chatbot',
       title: 'Franchise Onboarding RAG Chatbot',
-      date: 'Aug 2025 — Present',
-      tags: ['PYTHON', 'AWS', 'LANGCHAIN', 'FASTAPI'],
+      date: 'Aug 2026 — Sept 2026',
+      tags: ['AI AGENTS', 'PYTHON', 'AWS', 'LANGCHAIN'],
       icon: <Sparkles className="w-5 h-5" />,
       desc: 'Engineered an interactive AI chatbot for franchise acquisition and onboarding. Formulated a 5-layer RAG architecture featuring FAISS vector stores, secure Tooling APIs, LangChain agents, FastAPI routing, and Langfuse tracing for real-time model cost and accuracy evaluation.',
       image: '',
@@ -327,7 +425,7 @@ export default function Projects() {
     {
       id: 'saas-to-saas-migration',
       title: 'SaaS to SaaS Airflow Data Migration',
-      date: 'Aug 2025 — Present',
+      date: 'Aug 2025 — Nov 2025',
       tags: ['APACHE AIRFLOW', 'POSTGRESQL', 'PYTHON', 'SQL'],
       icon: <Database className="w-5 h-5" />,
       desc: 'Architected automated, high-integrity database synchronization and sanitization pipelines from a third-party SaaS CRM to an in-house SaaS platform. Managed complex 700+ table structures, designed schema dependency sequence maps, and scheduled Dockerized Apache Airflow ETL clusters.',
@@ -448,7 +546,7 @@ export default function Projects() {
     }
   ]
 
-  const allTags = ['ALL', 'PYTHON', 'AWS', 'SQL', 'GRAFANA', 'LANGCHAIN', 'POWER BI']
+  const allTags = ['ALL', 'AI AGENTS', 'AWS', 'PYTHON', 'SQL', 'GRAFANA', 'LANGCHAIN', 'POWER BI']
 
   const filteredProjects = filterTag === 'ALL'
     ? projectsData
@@ -461,7 +559,7 @@ export default function Projects() {
   return (
     <section className="py-24 bg-white dark:bg-slate-950 border-t border-slate-200/50 dark:border-slate-800/50" id="projects">
       <div className="max-w-[1200px] mx-auto px-6 md:px-8">
-        
+
         {/* Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-16">
           <div className="text-left">
@@ -478,11 +576,10 @@ export default function Projects() {
               <button
                 key={tag}
                 onClick={() => setFilterTag(tag)}
-                className={`px-3 py-1.5 font-body text-[10px] font-bold tracking-wide uppercase transition-all ${
-                  filterTag === tag
+                className={`px-3 py-1.5 font-body text-[10px] font-bold tracking-wide uppercase transition-all ${filterTag === tag
                     ? 'bg-slate-900 text-white dark:bg-primary-light dark:text-slate-950'
                     : 'text-slate-500 hover:text-slate-900 dark:text-slate-400 dark:hover:text-white hover:bg-white dark:hover:bg-slate-800'
-                }`}
+                  }`}
               >
                 {tag}
               </button>
@@ -530,7 +627,7 @@ export default function Projects() {
                 <h3 className="font-display text-lg font-bold text-slate-900 dark:text-white group-hover:text-primary dark:group-hover:text-primary-light transition-colors duration-200">
                   {project.title}
                 </h3>
-                
+
                 <p className="font-body text-xs text-slate-500 dark:text-slate-400 leading-relaxed line-clamp-3">
                   {project.desc}
                 </p>
@@ -562,9 +659,9 @@ export default function Projects() {
 
       {/* Case Study Modal Overlay */}
       {selectedProject && (
-        <ProjectModal 
-          project={selectedProject} 
-          onClose={() => setSelectedProject(null)} 
+        <ProjectModal
+          project={selectedProject}
+          onClose={() => setSelectedProject(null)}
         />
       )}
     </section>
