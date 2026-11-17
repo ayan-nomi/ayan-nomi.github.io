@@ -25,24 +25,24 @@ export default function ProjectModal({ project, onClose }) {
         {/* Close Button */}
         <button 
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors"
+          className="absolute top-4 right-4 p-2 text-slate-400 hover:text-slate-900 dark:hover:text-white transition-colors bg-white/80 dark:bg-slate-950/80 backdrop-blur-sm z-20"
           aria-label="Close Modal"
         >
           <X size={18} />
         </button>
 
-        {/* Categories / Tags */}
-        <div className="mb-4">
-          <span className="px-3 py-1 bg-primary/5 text-primary border border-primary/20 dark:bg-primary-light/5 dark:text-primary-light dark:border-primary-light/20 font-body text-[10px] font-bold uppercase tracking-wider">
+        {/* Categories / Tags & Date */}
+        <div className="flex flex-wrap items-center gap-2 mb-4 pr-12">
+          <span className="px-2.5 py-1 bg-primary/5 text-primary border border-primary/20 dark:bg-primary-light/5 dark:text-primary-light dark:border-primary-light/20 font-body text-[10px] font-bold uppercase tracking-wider">
             {project.tags.join(' • ')}
           </span>
-          <span className="text-slate-400 dark:text-slate-500 font-body text-[10px] uppercase font-bold tracking-widest pl-3">
+          <span className="text-slate-400 dark:text-slate-500 font-body text-[10px] uppercase font-bold tracking-widest">
             {project.date}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="font-display text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-6 leading-tight pr-8">
+        <h3 className="font-display text-2xl md:text-3xl font-bold text-slate-900 dark:text-white mb-6 leading-tight pr-8 md:pr-12">
           {project.title}
         </h3>
 
